@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "105214686069",
+    "project_id": "dqa-thltddnc",
+    "storage_bucket": "dqa-thltddnc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105214686069:android:d45b4e12938565546b993c",
+        "android_client_info": {
+          "package_name": "com.example.dqa_19dh110011"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105214686069-nief1duqj1s609qstj0td7slj7lkh4of.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZQf2dnUzkRaT7MC-49Ah3m3HNVjPCygg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105214686069-nief1duqj1s609qstj0td7slj7lkh4of.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
