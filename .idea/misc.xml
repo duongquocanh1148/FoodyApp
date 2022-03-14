@@ -5,6 +5,21 @@
       <map>
         <entry key="..\:/Users/SV/DQA_19DH110011/app/src/main/res/drawable/badge_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/SV/DQA_19DH110011/app/src/main/res/layout/activity_main.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/badge_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/bg_green_border_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/bg_green_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/bg_green_corner_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/bg_red_border_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/drawable/side_nav_bar.xml" value="0.2703125" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/layout/fragment_address.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/layout/fragment_full_name.xml" value="0.264" />
+        <entry key="..\:/Users/SV/Desktop/FoodyApp/app/src/main/res/layout/fragment_user_pass.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
