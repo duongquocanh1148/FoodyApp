@@ -7,7 +7,7 @@
     tools:context=".FullNameFragment">
 
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnRegister"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginBottom="263dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtFirstName"
+        android:id="@+id/edtPassword"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
@@ -27,24 +27,24 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="First name"
-
-        app:layout_constraintBottom_toTopOf="@+id/edtLastName"
+        android:background="@drawable/border_radius"
+        app:layout_constraintBottom_toTopOf="@+id/edtCP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtLastName"
+        android:id="@+id/edtCP"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Last name"
-
-        app:layout_constraintBottom_toTopOf="@+id/btnNext"
+        android:background="@drawable/border_radius"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -56,6 +56,16 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
