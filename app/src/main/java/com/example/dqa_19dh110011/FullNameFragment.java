@@ -2,11 +2,17 @@ package com.example.dqa_19dh110011;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FullNameFragment extends Fragment {
+
+    EditText edtFirstName, edtLastName;
+    Button btnNext;
+    NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,5 +70,22 @@ public class FullNameFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_full_name, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        edtFirstName = view.findViewById(R.id.edtFirstName);
+        edtLastName = view.findViewById(R.id.edtLastName);
+        btnNext = view.findViewById(R.id.btnNext);
+        btnNext.setOnClickListener(view1 -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("firstname", edtFirstName.getText().toString());
+            bundle.putString("lastname", edtLastName.getText().toString());
+            navController.navigate(R.id.action_fullNameFragment_to_addressFragment,bundle);
+        });
+
+
     }
 }

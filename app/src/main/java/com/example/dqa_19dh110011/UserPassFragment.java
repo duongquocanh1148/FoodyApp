@@ -1,12 +1,31 @@
 package com.example.dqa_19dh110011;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +33,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class UserPassFragment extends Fragment {
+
+    EditText edtEmail, edtPass, edtCP;
+    Button btnRegister;
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
+    String userID;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,4 +86,67 @@ public class UserPassFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_pass, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        edtEmail = view.findViewById(R.id.edtEmail);
+        edtPass = view.findViewById(R.id.edtPassword);
+        btnRegister = view.findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(view1 -> {
+            String address = getArguments().getString("address");
+            String firstname = getArguments().getString("firstname");
+            String lastname = getArguments().getString("lastname");
+            double latitude = getArguments().getDouble("latitude");
+            double longitude = getArguments().getDouble("longitude");
+            String mobile = getArguments().getString("mobile");
+            String email = edtEmail.getText().toString();
+            String password = edtPass.getText().toString();
+            firebaseAuth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isComplete()){
+                                userID = firebaseAuth.getCurrentUser().getUid();
+                                DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+                                Map<String,Object> user = new HashMap<>();
+                                user.put("firstname",firstname);
+                                user.put("lastname",lastname);
+                                user.put("address",address);
+                                user.put("email",email);
+                                user.put("mobile", mobile);
+                                user.put("latitude", latitude);
+                                user.put("longitude", longitude);
+                                databaseReference.child("users").child(userID).setValue(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+                                                Intent i = new Intent(getContext(), SignInActivity.class);
+                                                i.putExtra("email", email);
+                                                getActivity().setResult(Activity.RESULT_OK, i);
+                                                getActivity().finish();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+        }
 }

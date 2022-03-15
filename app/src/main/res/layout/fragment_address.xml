@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 tools:context=".FullNameFragment">
 
 <Button
-    android:id="@+id/btnRegister"
+    android:id="@+id/btnNext"
     android:layout_width="380dp"
     android:layout_height="60dp"
     android:layout_marginBottom="263dp"
@@ -18,7 +18,7 @@ tools:context=".FullNameFragment">
     app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtAddress"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
@@ -28,13 +28,13 @@ tools:context=".FullNameFragment">
         android:ems="10"
         android:hint="Address"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtCP"
+        app:layout_constraintBottom_toTopOf="@+id/edtMoblie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtCP"
+        android:id="@+id/edtMoblie"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
@@ -44,7 +44,7 @@ tools:context=".FullNameFragment">
         android:ems="10"
         android:hint="Mobile"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintBottom_toTopOf="@+id/btnNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

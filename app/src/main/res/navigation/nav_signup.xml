@@ -9,12 +9,20 @@
         android:id="@+id/fullNameFragment"
         android:name="com.example.dqa_19dh110011.FullNameFragment"
         android:label="fragment_full_name"
-        tools:layout="@layout/fragment_full_name" />
+        tools:layout="@layout/fragment_full_name" >
+        <action
+            android:id="@+id/action_fullNameFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addressFragment"
         android:name="com.example.dqa_19dh110011.AddressFragment"
         android:label="fragment_address"
-        tools:layout="@layout/fragment_address" />
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_addressFragment_to_userPassFragment"
+            app:destination="@id/userPassFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userPassFragment"
         android:name="com.example.dqa_19dh110011.UserPassFragment"

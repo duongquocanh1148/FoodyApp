@@ -2,11 +2,19 @@ package com.example.dqa_19dh110011;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.android.gms.maps.model.LatLng;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class AddressFragment extends Fragment {
+
+    EditText edtAddress, edtMobile;
+    Button btnNext;
+    NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,5 +72,26 @@ public class AddressFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_address, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        edtAddress = view.findViewById(R.id.edtAddress);
+        edtMobile = view.findViewById(R.id.edtMoblie);
+        btnNext = view.findViewById(R.id.btnNext);
+
+        btnNext.setOnClickListener(view1 -> {
+            //LatLng latLng = LocationServiceTask.getLatLngFromAddress(getContext(), edtAddress.getText().toString());
+            Bundle bundle = new Bundle();
+            bundle.putString("address", edtAddress.getText().toString());
+            bundle.putString("mobile", edtMobile.getText().toString());
+            //bundle.putDouble("latitude", latLng.latitude);
+            //bundle.putDouble("longitude", latLng.longitude);
+            bundle.putString("firstname", getArguments().getString("firstname"));
+            bundle.putString("lastname", getArguments().getString("lastname"));
+            navController.navigate(R.id.action_addressFragment_to_userPassFragment,bundle);
+        });
     }
 }
