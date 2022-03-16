@@ -119,16 +119,17 @@ public class UserPassFragment extends Fragment {
                                 user.put("address",address);
                                 user.put("email",email);
                                 user.put("mobile", mobile);
-                                user.put("latitude", latitude);
-                                user.put("longitude", longitude);
+                                //user.put("latitude", latitude);
+                                //user.put("longitude", longitude);
+                                Intent intent = new Intent(getContext(), SignInActivity.class);
                                 databaseReference.child("users").child(userID).setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
                                                 Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
-                                                Intent i = new Intent(getContext(), SignInActivity.class);
-                                                i.putExtra("email", email);
-                                                getActivity().setResult(Activity.RESULT_OK, i);
+
+                                                intent.putExtra("email", email);
+                                                getActivity().setResult(Activity.RESULT_OK, intent);
                                                 getActivity().finish();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
@@ -137,7 +138,7 @@ public class UserPassFragment extends Fragment {
                                         Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
-
+                            startActivity(intent);
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {

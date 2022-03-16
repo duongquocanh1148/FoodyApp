@@ -12,6 +12,7 @@ tools:context=".FullNameFragment">
     android:layout_height="60dp"
     android:layout_marginBottom="263dp"
     android:text="Next"
+    android:textAllCaps="false"
     android:background="@drawable/bg_green_corner_button"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -28,13 +29,13 @@ tools:context=".FullNameFragment">
         android:ems="10"
         android:hint="Address"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtMoblie"
+        app:layout_constraintBottom_toTopOf="@+id/edtMobile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtMoblie"
+        android:id="@+id/edtMobile"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
@@ -43,22 +44,10 @@ tools:context=".FullNameFragment">
         android:background="@drawable/border_radius"
         android:ems="10"
         android:hint="Mobile"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/btnNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -66,8 +55,8 @@ tools:context=".FullNameFragment">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

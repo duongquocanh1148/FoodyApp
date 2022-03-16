@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,10 +82,13 @@ public class FullNameFragment extends Fragment {
         edtLastName = view.findViewById(R.id.edtLastName);
         btnNext = view.findViewById(R.id.btnNext);
         btnNext.setOnClickListener(view1 -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("firstname", edtFirstName.getText().toString());
-            bundle.putString("lastname", edtLastName.getText().toString());
-            navController.navigate(R.id.action_fullNameFragment_to_addressFragment,bundle);
+            if(!TextUtils.isEmpty(edtFirstName.getText()) && !TextUtils.isEmpty(edtLastName.getText())) {
+                Bundle bundle = new Bundle();
+                bundle.putString("firstname", edtFirstName.getText().toString());
+                bundle.putString("lastname", edtLastName.getText().toString());
+                navController.navigate(R.id.action_fullNameFragment_to_addressFragment, bundle);
+            }
+            else Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         });
 
 

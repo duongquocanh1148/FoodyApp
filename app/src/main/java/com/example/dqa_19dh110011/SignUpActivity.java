@@ -20,7 +20,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        toolbar = findViewById(R.id.toolbar1);
+        toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         navController = Navigation.findNavController(this,R.id.nav_signup);
         appBarConfiguration = new AppBarConfiguration.Builder(

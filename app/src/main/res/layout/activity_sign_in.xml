@@ -143,6 +143,7 @@
         android:layout_marginStart="24dp"
         android:background="@color/colorPrimary"
         android:text="@string/text_sign_in"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnSignUp" />
@@ -156,6 +157,7 @@
         android:layout_marginEnd="24dp"
         android:background="@color/colorWhite"
         android:text="@string/text_sign_up"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnSignIn"

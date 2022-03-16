@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -79,19 +81,22 @@ public class AddressFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         edtAddress = view.findViewById(R.id.edtAddress);
-        edtMobile = view.findViewById(R.id.edtMoblie);
+        edtMobile = view.findViewById(R.id.edtMobile);
         btnNext = view.findViewById(R.id.btnNext);
 
         btnNext.setOnClickListener(view1 -> {
-            //LatLng latLng = LocationServiceTask.getLatLngFromAddress(getContext(), edtAddress.getText().toString());
-            Bundle bundle = new Bundle();
-            bundle.putString("address", edtAddress.getText().toString());
-            bundle.putString("mobile", edtMobile.getText().toString());
-            //bundle.putDouble("latitude", latLng.latitude);
-            //bundle.putDouble("longitude", latLng.longitude);
-            bundle.putString("firstname", getArguments().getString("firstname"));
-            bundle.putString("lastname", getArguments().getString("lastname"));
-            navController.navigate(R.id.action_addressFragment_to_userPassFragment,bundle);
+            if(!TextUtils.isEmpty(edtAddress.getText()) && !TextUtils.isEmpty(edtMobile.getText())) {
+                //LatLng latLng = LocationServiceTask.getLatLngFromAddress(getContext(), edtAddress.getText().toString());
+                Bundle bundle = new Bundle();
+                bundle.putString("address", edtAddress.getText().toString());
+                bundle.putString("mobile", edtMobile.getText().toString());
+                //bundle.putDouble("latitude", latLng.latitude);
+                //bundle.putDouble("longitude", latLng.longitude);
+                bundle.putString("firstname", getArguments().getString("firstname"));
+                bundle.putString("lastname", getArguments().getString("lastname"));
+                navController.navigate(R.id.action_addressFragment_to_userPassFragment, bundle);
+            }
+            else Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         });
     }
 }
