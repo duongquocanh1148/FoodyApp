@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fullNameFragment"
         android:name="com.example.dqa_19dh110011.FullNameFragment"
-        android:label="fragment_full_name"
+        android:label="FullName"
         tools:layout="@layout/fragment_full_name" >
         <action
             android:id="@+id/action_fullNameFragment_to_addressFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/addressFragment"
         android:name="com.example.dqa_19dh110011.AddressFragment"
-        android:label="fragment_address"
+        android:label="Address"
         tools:layout="@layout/fragment_address" >
         <action
             android:id="@+id/action_addressFragment_to_userPassFragment"
@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/userPassFragment"
         android:name="com.example.dqa_19dh110011.UserPassFragment"
-        android:label="fragment_user_pass"
+        android:label="Email"
         tools:layout="@layout/fragment_user_pass" />
 </navigation>
