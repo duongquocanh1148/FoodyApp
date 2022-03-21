@@ -25,6 +25,7 @@ public class SignInActivity extends AppCompatActivity {
     Button btnSignUp, btnSignIn;
     EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class SignInActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         edtEmail.setText(intent.getStringExtra("email"));
 
         mAuth = FirebaseAuth.getInstance();
@@ -50,8 +51,8 @@ public class SignInActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
-                startActivity(i);
+                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -83,7 +84,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(edtEmail!=null){
+        if(mAuth.getCurrentUser()!= null && intent.getStringExtra("email")==null && intent.getStringExtra("password")!=null){
             Intent i = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(i);
         }

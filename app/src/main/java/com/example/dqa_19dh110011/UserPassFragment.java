@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,6 +97,7 @@ public class UserPassFragment extends Fragment {
         edtEmail = view.findViewById(R.id.edtEmail);
         edtPass = view.findViewById(R.id.edtPassword);
         btnRegister = view.findViewById(R.id.btnRegister);
+        edtCP = view.findViewById(R.id.edtCP);
         btnRegister.setOnClickListener(view1 -> {
             String address = getArguments().getString("address");
             String firstname = getArguments().getString("firstname");
@@ -105,50 +107,43 @@ public class UserPassFragment extends Fragment {
             String mobile = getArguments().getString("mobile");
             String email = edtEmail.getText().toString();
             String password = edtPass.getText().toString();
-            firebaseAuth.createUserWithEmailAndPassword(email,password)
+            String confirmPassword = edtCP.getText().toString();
+            if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(confirmPassword)){
+                if(password.equals(confirmPassword)){
+                     firebaseAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isComplete()){
+                            if (task.isComplete()) {
                                 userID = firebaseAuth.getCurrentUser().getUid();
                                 DatabaseReference databaseReference = firebaseDatabase.getReference();
 
-                                Map<String,Object> user = new HashMap<>();
-                                user.put("firstname",firstname);
-                                user.put("lastname",lastname);
-                                user.put("address",address);
-                                user.put("email",email);
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("firstname", firstname);
+                                user.put("lastname", lastname);
+                                user.put("address", address);
+                                user.put("email", email);
                                 user.put("mobile", mobile);
+                                user.put("password", password);
                                 //user.put("latitude", latitude);
                                 //user.put("longitude", longitude);
                                 Intent intent = new Intent(getContext(), SignInActivity.class);
-                                databaseReference.child("users").child(userID).setValue(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
-
-
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
                                 intent.putExtra("email", email);
                                 getActivity().setResult(Activity.RESULT_OK, intent);
                                 getActivity().finish();
-                            startActivity(intent);
+                                startActivity(intent);
                             }
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        });
+                      })
+                             .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else Toast.makeText(getContext(), "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
 
+                }else Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            });
         }
 }
