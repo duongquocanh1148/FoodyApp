@@ -31,7 +31,6 @@ tools:context=".FullNameFragment">
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edtMobile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

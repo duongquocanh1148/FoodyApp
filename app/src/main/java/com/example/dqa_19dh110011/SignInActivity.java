@@ -79,4 +79,13 @@ public class SignInActivity extends AppCompatActivity {
             });
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(edtEmail!=null){
+            Intent i = new Intent(SignInActivity.this, MainActivity.class);
+            startActivity(i);
+        }
+    }
 }

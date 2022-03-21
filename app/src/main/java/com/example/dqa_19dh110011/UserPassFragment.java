@@ -128,9 +128,7 @@ public class UserPassFragment extends Fragment {
                                             public void onSuccess(Void unused) {
                                                 Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
 
-                                                intent.putExtra("email", email);
-                                                getActivity().setResult(Activity.RESULT_OK, intent);
-                                                getActivity().finish();
+
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -138,6 +136,9 @@ public class UserPassFragment extends Fragment {
                                         Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
+                                intent.putExtra("email", email);
+                                getActivity().setResult(Activity.RESULT_OK, intent);
+                                getActivity().finish();
                             startActivity(intent);
                             }
                         }
