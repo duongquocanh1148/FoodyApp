@@ -84,7 +84,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(mAuth.getCurrentUser()!= null && intent.getStringExtra("email")==null && intent.getStringExtra("password")!=null){
+        if(mAuth.getCurrentUser()!= null && intent.getStringExtra("email")==null){
             Intent i = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(i);
         }
