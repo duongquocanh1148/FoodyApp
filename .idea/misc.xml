@@ -3,6 +3,54 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/drawable/badge_background.xml" value="0.290625" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/activity_change_password.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/activity_order.xml" value="0.264" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/activity_restaurant_detail.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_add_to_basket.xml" value="0.2" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_address.xml" value="0.2713541666666667" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_basket_dialog.xml" value="0.264" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_order.xml" value="0.2743589743589744" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_top_restaurant.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/fragment_user_pass.xml" value="0.2713541666666667" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/layout_restaurant.xml" value="0.2713541666666667" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/nav_header_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/row_basket.xml" value="0.264" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/row_order_finished.xml" value="0.2743589743589744" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/row_restaurant.xml" value="0.2713541666666667" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/row_top_food.xml" value="0.2713541666666667" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/layout/row_top_restaurant.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/menu/cart_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/DQA_19DH110011/app/src/main/res/menu/main_menu.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable-v24/layout_shadow.xml" value="0.13055555555555556" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable/bg_green_border_button.xml" value="0.290625" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable/bg_green_button.xml" value="0.290625" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable/bg_green_corner_button.xml" value="0.290625" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable/bg_red_border_button.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/drawable/border_radius.xml" value="0.290625" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/activity_sign_in.xml" value="0.27447916666666666" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_logout.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_order.xml" value="0.182518115942029" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_profile.xml" value="0.182518115942029" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_restaurant.xml" value="0.10833333333333334" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_top_food.xml" value="0.1421875" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/fragment_top_restaurant.xml" value="0.1421875" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/layout_item.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/layout_restaurant.xml" value="0.4" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/nav_header_main.xml" value="0.182518115942029" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/row_order_finished.xml" value="0.536" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/row_restaurant.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/row_top_food.xml" value="0.4" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/layout/row_top_restaurant.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/menu/cart_menu.xml" value="0.1" />
+        <entry key="..\:/Study/1148/Homework/Android/Advanced/FoodyApp/app/src/main/res/menu/main_menu.xml" value="0.264" />
         <entry key="..\:/Study/1148/Homework/Android/FoodyApp/app/src/main/res/drawable/badge_background.xml" value="0.290625" />
         <entry key="..\:/Study/1148/Homework/Android/FoodyApp/app/src/main/res/drawable/bg_green_border_button.xml" value="0.290625" />
         <entry key="..\:/Study/1148/Homework/Android/FoodyApp/app/src/main/res/drawable/bg_green_button.xml" value="0.290625" />
@@ -44,5 +92,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

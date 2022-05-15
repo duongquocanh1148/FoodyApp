@@ -61,7 +61,6 @@ public class SignInActivity extends AppCompatActivity {
         String email, pass;
         email = edtEmail.getText().toString();
         pass = edtPassword.getText().toString();
-
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)){
             Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
             return;
@@ -87,6 +86,13 @@ public class SignInActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser()!= null && intent.getStringExtra("email")==null){
             Intent i = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(i);
+            finish();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

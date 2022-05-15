@@ -1,4 +1,4 @@
-package com.example.dqa_19dh110011;
+package com.example.dqa_19dh110011.Fragment;
 
 import android.os.Bundle;
 
@@ -16,16 +16,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.example.dqa_19dh110011.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddressFragment#newInstance} factory method to
+ * Use the {@link FullNameFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddressFragment extends Fragment {
+public class FullNameFragment extends Fragment {
 
-    EditText edtAddress, edtMobile;
+    EditText edtFirstName, edtLastName;
     Button btnNext;
     NavController navController;
 
@@ -38,7 +38,7 @@ public class AddressFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AddressFragment() {
+    public FullNameFragment() {
         // Required empty public constructor
     }
 
@@ -48,11 +48,11 @@ public class AddressFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AddressFragment.
+     * @return A new instance of fragment FullNameFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddressFragment newInstance(String param1, String param2) {
-        AddressFragment fragment = new AddressFragment();
+    public static FullNameFragment newInstance(String param1, String param2) {
+        FullNameFragment fragment = new FullNameFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,30 +73,27 @@ public class AddressFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_address, container, false);
+
+        return inflater.inflate(R.layout.fragment_full_name, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        edtAddress = view.findViewById(R.id.edtAddress);
-        edtMobile = view.findViewById(R.id.edtMobile);
+        edtFirstName = view.findViewById(R.id.edtFirstName);
+        edtLastName = view.findViewById(R.id.edtLastName);
         btnNext = view.findViewById(R.id.btnNext);
-
         btnNext.setOnClickListener(view1 -> {
-            if(!TextUtils.isEmpty(edtAddress.getText()) && !TextUtils.isEmpty(edtMobile.getText())) {
-                //LatLng latLng = LocationServiceTask.getLatLngFromAddress(getContext(), edtAddress.getText().toString());
+            if(!TextUtils.isEmpty(edtFirstName.getText()) && !TextUtils.isEmpty(edtLastName.getText())) {
                 Bundle bundle = new Bundle();
-                bundle.putString("address", edtAddress.getText().toString());
-                bundle.putString("mobile", edtMobile.getText().toString());
-                //bundle.putDouble("latitude", latLng.latitude);
-                //bundle.putDouble("longitude", latLng.longitude);
-                bundle.putString("firstname", getArguments().getString("firstname"));
-                bundle.putString("lastname", getArguments().getString("lastname"));
-                navController.navigate(R.id.action_addressFragment_to_userPassFragment, bundle);
+                bundle.putString("firstname", edtFirstName.getText().toString());
+                bundle.putString("lastname", edtLastName.getText().toString());
+                navController.navigate(R.id.action_fullNameFragment_to_addressFragment, bundle);
             }
             else Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         });
+
+
     }
 }

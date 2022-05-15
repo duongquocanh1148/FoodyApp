@@ -1,4 +1,4 @@
-package com.example.dqa_19dh110011;
+package com.example.dqa_19dh110011.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dqa_19dh110011.R;
+import com.example.dqa_19dh110011.SignInActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +44,7 @@ public class UserPassFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     String userID;
+    NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,6 +97,7 @@ public class UserPassFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        navController = Navigation.findNavController(view);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         edtEmail = view.findViewById(R.id.edtEmail);
@@ -117,25 +123,34 @@ public class UserPassFragment extends Fragment {
                             if (task.isComplete()) {
                                 userID = firebaseAuth.getCurrentUser().getUid();
                                 DatabaseReference databaseReference = firebaseDatabase.getReference();
-
                                 Map<String, Object> user = new HashMap<>();
                                 user.put("firstname", firstname);
                                 user.put("lastname", lastname);
                                 user.put("address", address);
                                 user.put("email", email);
                                 user.put("mobile", mobile);
-                                user.put("password", password);
-                                //user.put("latitude", latitude);
-                                //user.put("longitude", longitude);
-                                Intent intent = new Intent(getContext(), SignInActivity.class);
-                                intent.putExtra("email", email);
-                                getActivity().setResult(Activity.RESULT_OK, intent);
-                                getActivity().finish();
-                                startActivity(intent);
+                                user.put("latitude", latitude);
+                                user.put("longitude", longitude);
+                                databaseReference.child("users").child(userID).setValue(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Intent intent = new Intent(getContext(), SignInActivity.class);
+                                                intent.putExtra("email", email);
+                                                getActivity().setResult(Activity.RESULT_OK, intent);
+                                                getActivity().finish();
+                                                startActivity(intent);
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                             }
                         }
-                      })
-                             .addOnFailureListener(new OnFailureListener() {
+                      }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

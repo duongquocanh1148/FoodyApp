@@ -1,32 +1,34 @@
-package com.example.dqa_19dh110011;
+package com.example.dqa_19dh110011.Fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import com.example.dqa_19dh110011.R;
+import com.example.dqa_19dh110011.SignInActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FullNameFragment#newInstance} factory method to
+ * Use the {@link LogoutFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FullNameFragment extends Fragment {
+public class LogoutFragment extends DialogFragment {
 
-    EditText edtFirstName, edtLastName;
-    Button btnNext;
-    NavController navController;
-
+    FirebaseAuth firebaseAuth;
+    Button btnLogOut;
+    EditText edtEmail;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +38,7 @@ public class FullNameFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FullNameFragment() {
+    public LogoutFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +48,11 @@ public class FullNameFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FullNameFragment.
+     * @return A new instance of fragment LogoutFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FullNameFragment newInstance(String param1, String param2) {
-        FullNameFragment fragment = new FullNameFragment();
+    public static LogoutFragment newInstance(String param1, String param2) {
+        LogoutFragment fragment = new LogoutFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,27 +73,24 @@ public class FullNameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_full_name, container, false);
+        return inflater.inflate(R.layout.fragment_logout, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
-        edtFirstName = view.findViewById(R.id.edtFirstName);
-        edtLastName = view.findViewById(R.id.edtLastName);
-        btnNext = view.findViewById(R.id.btnNext);
-        btnNext.setOnClickListener(view1 -> {
-            if(!TextUtils.isEmpty(edtFirstName.getText()) && !TextUtils.isEmpty(edtLastName.getText())) {
-                Bundle bundle = new Bundle();
-                bundle.putString("firstname", edtFirstName.getText().toString());
-                bundle.putString("lastname", edtLastName.getText().toString());
-                navController.navigate(R.id.action_fullNameFragment_to_addressFragment, bundle);
+        edtEmail = view.findViewById(R.id.edtEmail);
+        firebaseAuth = FirebaseAuth.getInstance();
+        btnLogOut = view.findViewById(R.id.btn_logOut);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent i = new Intent(getContext(), SignInActivity.class);
+                startActivity(i);
+                getActivity().finish();
             }
-            else Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         });
-
 
     }
 }
